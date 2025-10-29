@@ -2,6 +2,7 @@ import streamlit as st
 from openpyxl import load_workbook, Workbook
 from datetime import datetime
 import matplotlib.pyplot as plt
+import ianpack
 
 
 # 엑셀 파일 경로
@@ -30,6 +31,8 @@ def add_item(product, category, stock, price, date):
 # --------------------------
 st.set_page_config(page_title="상품 재고 현황 대시보드", layout="wide")
 st.title("상품 재고 현황 대시보드")
+pack_sub = ianpack.welcome()
+st.subheader(pack_sub)
 
 # 탭 구성
 tab1, tab2 = st.tabs(["재고 현황", " 신규 상품 등록"])
@@ -167,3 +170,4 @@ with tab2:
 # | **`st.form_submit_button()`**     | 폼 제출용 버튼을 생성합니다. 클릭 시 `True`를 반환하여 폼 제출을 감지합니다.              |
 # | **`st.success()`**                | 녹색 박스로 성공 메시지를 표시합니다.                                        |
 # | **`st.warning()`**                | 노란색 박스로 경고 메시지를 표시합니다.                                       |
+
